@@ -1,4 +1,4 @@
-package com.hepipat.rapimo.ui.theme
+package com.hepipat.rapimo.core.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
