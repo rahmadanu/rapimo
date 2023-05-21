@@ -35,7 +35,14 @@ fun RapimoApp(
         windowSizeClass = windowSizeClass
     ),
 ) {
+    val shouldShowBottomBar = appState.shouldShowBottomBar
+            && appState.currentTopLevelDestination == TopLevelDestination.HOME
+            || appState.currentTopLevelDestination == TopLevelDestination.PLAN
+
     val shouldShowGradientBackground =
+        appState.currentTopLevelDestination == TopLevelDestination.HOME
+
+    val shouldShowNotification =
         appState.currentTopLevelDestination == TopLevelDestination.HOME
 
     RapimoBackground {
@@ -54,7 +61,7 @@ fun RapimoApp(
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 //snackbarHost = { SnackbarHost(snackBarHostState) },
                 bottomBar = {
-                    if (appState.shouldShowBottomBar) {
+                    if (shouldShowBottomBar) {
                         RapimoBottomBar(
                             destinations = appState.topLevelDestinations,
                             onNavigateToDestination = appState::navigateToTopLevelDestination,
@@ -70,6 +77,10 @@ fun RapimoApp(
                         .padding(padding)
                         .consumedWindowInsets(
                             //learn
+                            padding
+                        )
+                        .windowInsetsPadding(
+                            //learn
                             WindowInsets.safeDrawing.only(
                                 WindowInsetsSides.Horizontal
                             ),
@@ -82,7 +93,7 @@ fun RapimoApp(
                         if (destination != null) {
                             RapimoTopAppBar(
                                 titleRes = destination.titleTextId,
-                                actionIcon = RapimoIcon.Home, //for testing purpose
+                                actionIcon = if (shouldShowNotification) RapimoIcon.Home else null, //for testing purpose
                                 actionIconContentDescription = "",
                                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                                     containerColor = Color.Transparent,
@@ -124,7 +135,7 @@ fun RapimoBottomBar(
                             imageVector = icon.imageVector,
                             contentDescription = null,
                         )
-                        is Icon.DrawableResourceIcon -> androidx.compose.material3.Icon(
+                        is Icon.DrawableResourceIcon -> Icon(
                             painter = painterResource(id = icon.id),
                             contentDescription = null,
                         )

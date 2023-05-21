@@ -17,19 +17,13 @@ enum class TopLevelDestination(
         iconTextId = R.string.home,
         titleTextId = R.string.home,
     ),
-    SECOND(
-        selectedIcon = ImageVectorIcon(RapimoIcon.Home),
-        unselectedIcon = ImageVectorIcon(RapimoIcon.Home), // should use home border
-        iconTextId = R.string.home,
-        titleTextId = R.string.home,
+    PLAN(
+        selectedIcon = ImageVectorIcon(RapimoIcon.Capture),
+        unselectedIcon = ImageVectorIcon(RapimoIcon.Capture), // should use home border
+        iconTextId = R.string.plan,
+        titleTextId = R.string.plan,
     ),
     THIRD(
-        selectedIcon = ImageVectorIcon(RapimoIcon.Home),
-        unselectedIcon = ImageVectorIcon(RapimoIcon.Home), // should use home border
-        iconTextId = R.string.home,
-        titleTextId = R.string.home,
-    ),
-    FORTH(
         selectedIcon = ImageVectorIcon(RapimoIcon.Home),
         unselectedIcon = ImageVectorIcon(RapimoIcon.Home), // should use home border
         iconTextId = R.string.home,

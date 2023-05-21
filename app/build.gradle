@@ -37,7 +37,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.2.0'
+        kotlinCompilerExtensionVersion '1.4.0'
     }
     packagingOptions {
         resources {
@@ -48,10 +48,14 @@ android {
 
 dependencies {
     implementation(project(":feature:home"))
+    implementation(project(":feature:plan"))
 
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
 
+    implementation Libs.composeNavigation
+
+    implementation 'com.google.accompanist:accompanist-navigation-animation:0.31.2-alpha'
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
@@ -59,8 +63,6 @@ dependencies {
     implementation 'androidx.compose.material3:material3:1.0.0-alpha11'
     implementation "androidx.compose.material3:material3-window-size-class:1.0.1"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation libs.androidx.navigation.compose
-    implementation libs.androidx.compose.material3.windowSizeClass
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -12,6 +12,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
+import com.hepipat.rapimo.feature.plan.navigation.planRoute
+import com.hepipat.rapimo.feature.plan.navigation.navigateToPlan
 import com.hepipat.rapimo.feature.home.navigation.homeRoute
 import com.hepipat.rapimo.feature.home.navigation.navigateToHome
 import com.hepipat.rapimo.navigation.TopLevelDestination
@@ -42,6 +44,7 @@ class RapimoAppState(
     val currentTopLevelDestination: TopLevelDestination?
         @Composable get() = when (currentDestination?.route) {
             homeRoute -> TopLevelDestination.HOME
+            planRoute -> TopLevelDestination.PLAN
             else -> null
         }
 
@@ -69,6 +72,7 @@ class RapimoAppState(
 
             when (topLevelDestination) {
                 TopLevelDestination.HOME -> navController.navigateToHome(topLevelNavOptions)
+                TopLevelDestination.PLAN -> navController.navigateToPlan(topLevelNavOptions)
                 else -> {}
             }
         }

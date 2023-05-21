@@ -1,10 +1,13 @@
 package com.hepipat.rapimo.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.hepipat.rapimo.feature.plan.navigation.planGraph
+import com.hepipat.rapimo.feature.plan.navigation.capturingScreen
+import com.hepipat.rapimo.feature.plan.navigation.navigateToCapturing
 import com.hepipat.rapimo.feature.home.navigation.homeRoute
 import com.hepipat.rapimo.feature.home.navigation.homeScreen
 
@@ -21,5 +24,15 @@ fun RapimoNavHost(
     ) {
         // TODO: handle topic clicks from each top level destination
         homeScreen(onItemClick = {})
+        planGraph(
+            onStartClick = {
+                navController.navigateToCapturing()
+            },
+            nestedGraphs = {
+                capturingScreen(
+                    onBackClick = navController::popBackStack,
+                )
+            }
+        )
     }
 }

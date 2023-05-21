@@ -52,7 +52,7 @@ fun RapimoTopAppBar(
 @Composable
 fun RapimoTopAppBar(
     @StringRes titleRes: Int,
-    actionIcon: ImageVector,
+    actionIcon: ImageVector?,
     actionIconContentDescription: String?,
     modifier: Modifier = Modifier,
     colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
@@ -62,11 +62,13 @@ fun RapimoTopAppBar(
         title = { Text(text = stringResource(id = titleRes)) },
         actions = {
             IconButton(onClick = onActionClick) {
-                Icon(
-                    imageVector = actionIcon,
-                    contentDescription = actionIconContentDescription,
-                    tint = MaterialTheme.colorScheme.onSurface,
-                )
+                if (actionIcon != null) {
+                    Icon(
+                        imageVector = actionIcon,
+                        contentDescription = actionIconContentDescription,
+                        tint = MaterialTheme.colorScheme.onSurface,
+                    )
+                }
             }
         },
         colors = colors,

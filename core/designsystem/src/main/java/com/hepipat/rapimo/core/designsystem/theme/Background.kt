@@ -11,4 +11,4 @@ data class BackgroundTheme(
     val tonalElevation: Dp = Dp.Unspecified
 )
 
-val localBackgroundTheme = staticCompositionLocalOf { BackgroundTheme() }
+val LocalBackgroundTheme = staticCompositionLocalOf { BackgroundTheme() }

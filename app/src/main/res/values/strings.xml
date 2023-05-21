@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Rapimo</string>
     <string name="home">Home</string>
+    <string name="plan">Plan</string>
+    <string name="capture">Capture</string>
+    <string name="capturing">Capturing</string>
 </resources>

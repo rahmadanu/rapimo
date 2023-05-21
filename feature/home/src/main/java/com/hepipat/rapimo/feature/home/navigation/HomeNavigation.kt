@@ -6,7 +6,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.hepipat.rapimo.feature.home.HomeRoute
 
-const val homeRoute = "home"
+const val homeRoute = "home_route"
 
 fun NavController.navigateToHome(navOptions: NavOptions? = null) {
     this.navigate(homeRoute, navOptions)

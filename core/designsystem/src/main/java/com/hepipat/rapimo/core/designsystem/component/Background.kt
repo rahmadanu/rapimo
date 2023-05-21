@@ -16,8 +16,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.hepipat.rapimo.core.designsystem.theme.GradientColors
+import com.hepipat.rapimo.core.designsystem.theme.LocalBackgroundTheme
 import com.hepipat.rapimo.core.designsystem.theme.LocalGradientColors
-import com.hepipat.rapimo.core.designsystem.theme.localBackgroundTheme
 import kotlin.math.tan
 
 @Composable
@@ -25,8 +25,8 @@ fun RapimoBackground(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit,
 ) {
-    val color = localBackgroundTheme.current.color
-    val tonalElevation = localBackgroundTheme.current.tonalElevation
+    val color = LocalBackgroundTheme.current.color
+    val tonalElevation = LocalBackgroundTheme.current.tonalElevation
     Surface(
         color = if (color == Color.Unspecified) Color.Transparent else color,
         tonalElevation = if (tonalElevation == Dp.Unspecified) 0.dp else tonalElevation,
