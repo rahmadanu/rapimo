@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.hepipat.rapimo.feature.plan'
+    namespace 'com.hepipat.rapimo.core.database'
     compileSdk 33
 
     defaultConfig {
@@ -28,29 +28,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion Versions.composeCompiler
-    }
 }
 
 dependencies {
-    implementation(project(":core:designsystem"))
-
-    implementation platform(Libs.composeBom)
-    androidTestImplementation platform(Libs.composeBom)
-
-    implementation Libs.composeUi
-    implementation Libs.composeNavigation
-    implementation Libs.composeMaterial3
-    implementation Libs.composeMaterial3WindowSizeClass
-    implementation Libs.composeFoundation
-    implementation Libs.composeFoundationLayout
-    implementation Libs.composeUiToolingPreview
-    debugImplementation Libs.composeUiTooling
-    implementation Libs.composeHilt
+    implementation Libs.roomRuntime
+    annotationProcessor Libs.roomCompiler
+    implementation Libs.roomKtx
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

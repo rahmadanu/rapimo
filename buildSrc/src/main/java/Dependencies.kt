@@ -13,6 +13,8 @@ object Libs {
     private const val verNavigation = "2.5.3"
     private const val verComposeViewModel = "2.5.1"
     private const val verComposeActivity = "1.6.1"
+    private const val verHiltCompose = "1.0.0"
+    private const val verRoom = "2.5.0"
 
     const val composeBom = "androidx.compose:compose-bom:$verComposeBom"
     const val composeNavigation = "androidx.navigation:navigation-compose:$verNavigation"
@@ -27,7 +29,12 @@ object Libs {
     const val composeUiToolingPreview = "androidx.compose.ui:ui-tooling-preview"
     const val composeUiTooling = "androidx.compose.ui:ui-tooling"
     const val composeActivity = "androidx.activity:activity-compose:$verComposeActivity"
-/*
+    const val composeHilt = "androidx.hilt:hilt-navigation-compose:$verHiltCompose"
+    const val roomRuntime = "androidx.room:room-runtime:$verRoom"
+    const val roomCompiler = "androidx.room:room-compiler:$verRoom"
+    const val roomKtx = "androidx.room:room-ktx:$verRoom"
+
+    /*
     // UI Tests
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'

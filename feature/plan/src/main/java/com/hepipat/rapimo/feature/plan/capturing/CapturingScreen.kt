@@ -25,20 +25,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.hepipat.rapimo.core.designsystem.component.RapimoTopAppBar
 import com.hepipat.rapimo.core.designsystem.icon.RapimoIcon
+import com.hepipat.rapimo.feature.plan.capturing.CapturingViewModel
 
 @Composable
 internal fun CapturingRoute(
     onBackClick: () -> Unit,
     //other onclicks,
     modifier: Modifier = Modifier,
-    //viewModel: CapturingViewModel = CapturingViewModel(CapturingRepositoryImpl()), //for testing only
+    /*viewModel: CapturingViewModel = hiltViewModel(),*/
 ) {
-    var capturingList = remember {
+    val capturingList = remember {
         mutableStateListOf("test1", "test2", "test3", "test4", "test5", "test6")
     }
-    CapturingScreen(capturingList = capturingList, modifier = modifier, onSendClicked = { capturingList.add(it) }, onBackClick = onBackClick )
+    CapturingScreen(
+        capturingList = capturingList,
+        modifier = modifier,
+        onSendClicked = { capturingList.add(it) },
+        onBackClick = onBackClick
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -69,7 +76,9 @@ fun StepPlanningContent(
     modifier: Modifier,
 ) {
     Row(modifier = modifier) {
-        IconButton(onClick = {  }, modifier = Modifier.weight(1f).background(MaterialTheme.colorScheme.surfaceVariant)) {
+        IconButton(onClick = {  }, modifier = Modifier
+            .weight(1f)
+            .background(MaterialTheme.colorScheme.surfaceVariant)) {
             Icon(
                 imageVector = RapimoIcon.Home,
                 contentDescription = "",
